@@ -18,3 +18,7 @@ jobs:
         repository: abrams1101/node-app
         path: .test/node
         
+    - name: Step04
+      run: |
+          ls -la
+          ls -a
