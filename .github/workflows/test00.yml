@@ -20,5 +20,6 @@ jobs:
         
     - name: Step04
       run: |
+          pwd
           ls -la
-          ls -a
+          ls .test
