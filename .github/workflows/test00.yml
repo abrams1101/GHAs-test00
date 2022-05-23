@@ -1,0 +1,19 @@
+name: Test00
+on: push
+
+jobs: 
+  build:
+    name: Test00
+    runs-on: ubuntu-latest
+    steps:
+    - name: Step01
+      uses: actions/checkout@v2
+      run: ls -la
+      
+    - name: Step02
+      uses: actions/checkout@v2
+      with:
+        repository: abrams1101/node-app
+        run: ls -la
+        path: .test/node
+        
