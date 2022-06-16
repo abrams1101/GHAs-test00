@@ -19,7 +19,10 @@ jobs:
         path: .test/node
         
     - name: Step04
+      env: 
+        name: Ab
       run: |
           pwd
           ls -la
           ls .test
+          echo $name
