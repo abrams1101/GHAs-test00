@@ -39,7 +39,6 @@ jobs:
 
          
   build_img_ecr_medium:
-    needs: build
     runs-on: ubuntu-latest
     
     
