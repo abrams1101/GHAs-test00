@@ -33,6 +33,7 @@ jobs:
          ECR_REPOSITORY: test00
          IMAGE_TAG: latest
       run: |
+         mkdir .data
          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
@@ -60,6 +61,7 @@ jobs:
         ECR_REPOSITORY: test01
         IMAGE_TAG: latest
       run: |
+        mkdir .data
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         
