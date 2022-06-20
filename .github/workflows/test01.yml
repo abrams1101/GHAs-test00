@@ -12,7 +12,8 @@ jobs:
     
     name: Build Image
     runs-on: ubuntu-latest
-
+    outputs:
+      outputs1: ${{steps.login-ecr.outputs.registry}}
     steps:
 
     - name: Check out code
@@ -36,7 +37,7 @@ jobs:
      
      - name: Build, tag, and push image to Amazon ECR, small
        env:
-         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+         ECR_REGISTRY: ${{ needs.build.outputs.outputs1 }}
          ECR_REPOSITORY: test00
          IMAGE_TAG: latest
        run: |
@@ -50,7 +51,7 @@ jobs:
      
      - name: Build, tag, and push image to Amazon ECR, medium
        env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REGISTRY: ${{ needs.build.outputs.outputs1 }}
         ECR_REPOSITORY: test01
         IMAGE_TAG: latest
        run: |
