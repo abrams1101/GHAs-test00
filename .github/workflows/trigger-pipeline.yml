@@ -2,13 +2,15 @@ name: Deploy to ECR
 
 on:
  
-  push:
-    branches: [ main ]
+  pull_request:
+    branches: 
+      - main
+    types: [closed]
 
 jobs:
   
   build:
-    
+    if: ${{ github.event.pull_request.merged }}
     name: Build Image
     runs-on: ubuntu-latest
 
