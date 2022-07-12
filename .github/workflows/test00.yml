@@ -21,3 +21,11 @@ jobs:
         repo: testnew
         github_token: ${{ secrets.G_ACCESS_TOKEN }}
         workflow_file_name: test00.yml
+
+    - uses: convictional/trigger-workflow-and-wait@v1.3.0
+      with:
+        owner: abrams1101
+        repo: testnew
+        ref: dev
+        github_token: ${{ secrets.G_ACCESS_TOKEN }}
+        workflow_file_name: test00.yml
