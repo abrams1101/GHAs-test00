@@ -1,5 +1,12 @@
 name: Test00
-on: push
+on:
+  schedule:
+      - cron: '0 2 * * *'
+  pull_request:
+    types: [closed]
+    branches: 
+      - main
+
 
 jobs: 
   build:
@@ -11,18 +18,18 @@ jobs:
       
     - name: Step02
       run: ls -la
-      
-    - name: Step03
-      uses: actions/checkout@v2
+
+    - uses: convictional/trigger-workflow-and-wait@v1.3.0
       with:
-        repository: abrams1101/node-app
-        path: .test/node
-        
-    - name: Step04
-      env: 
-        name: Ab
-      run: |
-          pwd
-          ls -la
-          ls .test
-          echo Iam${name}
+        owner: abrams1101
+        repo: testnew
+        github_token: ${{ secrets.G_ACCESS_TOKEN }}
+        workflow_file_name: test00.yml
+
+    - uses: convictional/trigger-workflow-and-wait@v1.3.0
+      with:
+        owner: abrams1101
+        repo: testnew
+        ref: dev
+        github_token: ${{ secrets.G_ACCESS_TOKEN }}
+        workflow_file_name: test00.yml
