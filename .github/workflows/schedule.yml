@@ -1,0 +1,15 @@
+name: Schedule
+
+on:
+  push:
+
+jobs: 
+  build:
+    name: Schedule
+    runs-on: ubuntu-latest
+    steps:
+    - name: Step01
+      uses: actions/checkout@v2
+      
+    - name: Step02
+      run: ls -la
