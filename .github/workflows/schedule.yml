@@ -3,7 +3,7 @@ name: Schedule-test
 on:
   push:
   schedule:
-      - cron: "0 9 * * *"
+      - cron: "0 11 * * *"
 
 jobs: 
   job1:
