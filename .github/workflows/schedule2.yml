@@ -1,0 +1,28 @@
+name: Schedule
+
+on:
+  push:
+  schedule:
+      - cron: "0 8 * * *"
+
+jobs: 
+  job1:
+    name: Schedule
+    runs-on: ubuntu-latest
+    steps:
+    - name: Step01
+      uses: actions/checkout@v2
+      
+    - name: Step02
+      run: ls -la
+  job1:
+    name: Schedule2
+    runs-on: ubuntu-latest
+    steps:
+    - name: Step01
+      uses: actions/checkout@v2
+      with:
+        ref: test
+      
+    - name: Step02
+      run: ls -la
