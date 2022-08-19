@@ -15,7 +15,7 @@ jobs:
       
     - name: Step02
       run: ls -la
-  job1:
+  job2:
     name: Schedule2
     runs-on: ubuntu-latest
     steps:
